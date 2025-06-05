@@ -1,0 +1,36 @@
+{# Form-Field Alerts #}
+
+{% load allauth %}
+{% if attrs.errors %}
+    <div class="alert alert-error">
+        <div role="alert">
+          <i class="fa fa-times-circle" aria-hidden="true"></i>
+          {% if attrs.errors|length == 1 %}
+            <span>{{ attrs.errors|first }}</span>
+          {% else %}
+            <ul>
+              {% for error in attrs.errors %}
+                  <li>{{ error }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+        {% comment %}<button class="close" aria-hidden="false" aria-label="Close" data-bs-dismiss="alert">&times;</button>{% endcomment %}
+    </div>
+{% elif attrs.form.non_field_errors %}
+    <div class="alert alert-error">
+        <div role="alert">
+          <i class="fa fa-times-circle" aria-hidden="true"></i>
+          {% if attrs.form.non_field_errors|length == 1 %}
+            <span>{{ attrs.form.non_field_errors|first }}</span>
+          {% else %}
+            <ul>
+              {% for error in attrs.form.non_field_errors %}
+                  <li>{{ error }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+        {% comment %}<button class="close" aria-hidden="false" aria-label="Close" data-bs-dismiss="alert">&times;</button>{% endcomment %}
+    </div>
+{% endif %}

@@ -1,0 +1,23 @@
+{# Main Top-Page Alerts #}
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-{{message.tags}}">
+        <div role="alert">
+            {% if message.tags == "success" %}
+                <i class="fa fa-check-circle" aria-hidden="true"></i>
+            {% elif message.tags == "info" %}
+                <i class="fa fa-info-circle" aria-hidden="true"></i>
+            {% elif message.tags == "error" %}
+                <i class="fa fa-times-circle" aria-hidden="true"></i>
+            {% elif message.tags == "warning" %}
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+            {% endif %}
+            {% autoescape off %}
+                {{ message }}
+            {% endautoescape %}
+        </div>
+        <button class="close" aria-hidden="false" aria-label="Close" data-bs-dismiss="alert">&times;</button>
+    </div>
+  {% endfor %}
+{% endif %}

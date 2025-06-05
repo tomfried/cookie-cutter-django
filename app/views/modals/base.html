@@ -1,0 +1,12 @@
+<div class="modals">
+  {# Loading dialog #}
+  {% include "modals/loading.html" %}
+
+  {% comment %}
+    {# Page 1 #}
+    {% url 'admin' as admin %}
+    {% if request.path == admin %}
+      {# do nothing #}
+    {% endif %}
+  {% endcomment %}
+</div>

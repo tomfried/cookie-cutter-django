@@ -1,0 +1,18 @@
+{% if base.breadcrumbs|length > 1 %}
+  <nav class="breadcrumb-bar" aria-label="Breadcrumb">
+    <div class="content-container">
+      <ol>
+        <li>
+          <a href="{% url 'home' %}" aria-label="Home"><i class="fas fa-home" aria-hidden="true"></i></a>
+        </li>
+        <span class="vert-divider" aria-hidden="true">|</span>
+        {% for breadcrumb in base.breadcrumbs %}
+          {% if not forloop.first %}
+            <i class="fas fa-angle-right" aria-hidden="true"></i>
+          {% endif %}
+          <li><a href="{{ breadcrumb.url }}">{{ breadcrumb.name }}</a></li>
+        {% endfor %}
+      </ol>
+    </div>
+  </nav>
+{% endif %}

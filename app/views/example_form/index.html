@@ -1,0 +1,92 @@
+{% extends "../layout/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="alert alert-info">
+  <div>
+    <i class="fa fa-info-circle" aria-hidden="true"></i>
+    Example of page with a form.
+  </div>
+</div>
+<h1>Request Service</h1>
+<p class="center">Select what type of service you would like to request:</p>
+<form>
+  <div class="form-block radio-block">
+    <label>
+      <span class="required">What service would you like?</span>
+    </label>
+    <div style="margin-top: .5em">
+        <input type="radio" name="service-type" value="ASL" aria-label="Request ASL Interpretation service">ASL Interpretation
+        <input type="radio" name="service-type" value="CART" aria-label="Request CART Live Captioning service">Live Captioning (CART)
+    </div>
+  </div>
+  <div id="serviceKind" class="form-block radio-block" style="display: none">
+    <label>
+      <span class="required">What kind of service?</span>
+    </label>
+    <div>
+        <input type="radio" name="remote-preference" aria-label="Service is virtual">Virtual
+        <input type="radio" name="remote-preference" aria-label="Service is in person">In Person
+    </div>
+  </div>
+  <div class="form-block radio-block">
+    <label>
+      <span class="required">Is this for you?</span>
+    </label>
+    <div>
+      <input type="radio" name="request-for-self" value="yes" aria-label="Request is for you">Yes
+      <input type="radio" name="request-for-self" value="no" aria-label="Request is for someone else">No
+    </div>
+  </div>
+  <div id="userInfoBlock">
+    <div class="form-block">
+      <label>
+        <span class="required">First Name</span>
+        <input type="text" autocomplete="given-name" placeholder="John" required></input>
+       </label>
+    </div>
+    <div class="form-block">
+      <label>
+        <span class="required">Last Name</span>
+        <input type="text" autocomplete="family-name" placeholder="Smith" required></input>
+       </label>
+    </div>
+    <div class="form-block">
+      <label>
+        <span class="required">Email</span>
+        <input type="email" autocomplete="email" placeholder="john.smith@gmail.com" required></input>
+       </label>
+    </div>
+  </div>
+  <div class="form-block">
+    <label>
+      <span class="required">Anticipated Subject</span>
+      <select>
+        <option disabled selected>Select a Subject</option>
+        <option>Class</option>
+        <option>Concert</option>
+        <option>Conference</option>
+        <option>Medical Appointment</option>
+        <option>Sporting Event</option>
+        <option>Other (please specify)</option>
+      </select>
+     </label>
+  </div>
+  <div id="subjectOther" class="form-block" style="display: none">
+    <label>
+      <span class="required">Subject (Other)</span>
+      <input type="text" placeholder="in a few words describe what this is for" required></input>
+     </label>
+  </div>
+  <div class="form-block">
+    <label>
+      <span>Details of Visit</span>
+      <textarea min-length="10" rows="3" placeholder='Additional details that an interpreter should know terminology for (ex: "calculus-based psyhics class")' required></textarea>
+     </label>
+  </div>
+  <div class="form-block">
+    <button class="btn btn-primary" type="submit">Submit Request</button>
+  </div>
+</form>
+<p></p>
+{% endblock %}

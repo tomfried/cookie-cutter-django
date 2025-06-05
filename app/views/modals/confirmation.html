@@ -1,0 +1,27 @@
+{% block modal %}
+  <div id="{{modal_id}}Modal" class="modal fade" data-confirmation="true" role="dialog" aria-describedby="{{modal_id}}Description" aria-labelledby="{{modal_id}}Header" tabindex="0" aria-modal="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 id="{{modal_id}}Header" class="modal-title">{{ modal_title }}</h1>
+        <p id="{{modal_id}}Description" class="sr-only">{{ modal_desc }}</p>
+        <button class="close" data-dismiss="modal">
+          <span aria-hidden="true">×</span>
+          <span class="sr-only">Close Dialog</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="{{modal_id}}Form" enctype="multipart/form-data" action="{{ modal_path }}" accept-charset="UTF-8">{% csrf_token %}
+          {% block modal_content %}{% endblock %}
+          <div class="modal-footer">
+            <div class="form-group">
+              <input class="btn btn-danger" type="button" data-dismiss="modal" value="Cancel">
+              {% if modal_type == 'confirmation' or modal_type == 'delete' %}
+                <button id="{{modal_id}}Submit" class="btn btn-success" type="submit">Confirm</button>
+              {% endif %}
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock modal %}

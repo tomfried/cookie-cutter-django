@@ -1,0 +1,41 @@
+{% comment %}
+<div {% if id %} id="{{id}}" {% endif %} class="alert alert-{{type}}" {% if role == "alert" %} role="alert" {% endif %}>
+    {% if type == "success" %}
+        <i class="fa fa-check-circle" aria-hidden="true"></i>
+    {% elif type == "info" %}
+        <i class="fa fa-info-circle" aria-hidden="true"></i>
+    {% elif type == "error" %}
+        <i class="fa fa-times-circle" aria-hidden="true"></i>
+    {% elif type == "warning" %}
+        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+    {% endif %}
+    {{ message }}
+    {% if show_close %}
+        <button class="close" aria-hidden="false" aria-label="Close" data-dismiss="alert">&times;</button>
+    {% endif %}
+</div>
+<hr class="hidden"/>
+{% endcomment %}
+
+
+{% load allauth %}
+<div {% if id %} id="{{id}}" {% endif %} class="alert alert-{{type}}" {% if role == "alert" %} role="alert" {% endif %}>
+    {% if type == "success" %}
+        <i class="fa fa-check-circle" aria-hidden="true"></i>
+    {% elif attrs.level is not none and attrs.level != "error" or type == "info" %}
+        <i class="fa fa-info-circle" aria-hidden="true"></i>
+    {% elif type == "error" or attr.errors or attrs.level == "error" %}
+        <i class="fa fa-times-circle" aria-hidden="true"></i>
+    {% elif type == "warning" %}
+        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+    {% endif %}
+    {% if message %}
+      {{ message }}
+    {% else %}
+      {% slot message %}{% endslot %}
+    {% endif %}
+    {% if show_close %}
+        <button class="close" aria-hidden="false" aria-label="Close" data-dismiss="alert">&times;</button>
+    {% endif %}
+</div>
+<hr class="hidden"/>

@@ -1,0 +1,29 @@
+{% load static compress sass_tags %}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script-->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!--script async src="https://www.googletagmanager.com/gtag/js?id=G-TPST4YWN5P"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '___________');
+</script-->
+<link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+<link rel="apple-touch-icon" href="{% static 'images/apple-touch-icon.png' %}">
+<link type="text/css" rel="stylesheet" href="{% sass_src 'css/application.scss' %}">
+<meta name="keywords" content="SITE_NAME {{ base.browser_title }}">
+<meta name="description" content="SITE_NAME {{ base.browser_title }}">
+<meta property="og:site_name" content="SITE_NAME">
+<meta property="og:title" content="{{ base.browser_title }}">
+<meta property="og:image" content="{% static 'images/logo.png' %}">
+<meta property="og:image:alt" content="Tom Tech Logo featuring the words Tom Tech followed by a purple robot icon">
+<meta property="og:locale" content="en_US">
+{% if enable_fork_awesome is not None %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
+{% endif %}
