@@ -1,5 +1,5 @@
-# Cookie Cutter Django Template - With Authentication
-A basic Django 5.0 starter project w/ Oauth piece derived from: https://github.com/mdrhmn/dj-social-auth
+# Cookie Cutter Django Template
+A basic Django 5.0 starter project.
 
 ## Project Setup
 1. Go to https://www.python.org/downloads/release/python-3116/ and downloaded Python 3.11.6.
