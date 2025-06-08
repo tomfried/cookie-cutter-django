@@ -1,6 +1,27 @@
 # Cookie Cutter Django Template
 A basic Django 5.0 starter project.
 
+## Screenshots
+**Home Page**
+![screenshot-of-home-page-django-app](https://github.com/user-attachments/assets/3db7feca-9bd3-4dad-8bd4-a93b1ee7baeb)
+
+**About Page**
+![screenshot-of-about-page-django-app](https://github.com/user-attachments/assets/413da6c5-7c5e-4ce9-8363-a77223537aca)
+
+**Example Complex Form**
+![screenshot-of-complex-form-page-django-app](https://github.com/user-attachments/assets/a403ed9b-31cd-48f9-93a6-cdc52af837fe)
+
+**Style Guide (Optionally Hidden)**
+Will help keep developers on track and test all components at one time for big changes
+![screenshot-of-style-guide-django-app](https://github.com/user-attachments/assets/408deaa1-6b8e-4698-a6fd-6675d15789b9)
+
+![screenshot-of-style-guide-2-django-app](https://github.com/user-attachments/assets/8725fb65-18f3-4f2d-8708-c2012440ba3c)
+
+![screenshot-of-style-guide-3-django-app](https://github.com/user-attachments/assets/49e8757e-7cfe-4740-8155-7315e84a5f41)
+
+![screenshot-of-style-guide-4-django-app](https://github.com/user-attachments/assets/91444851-7b82-46fe-ae68-cb48e57b1d8e)
+
+
 ## Project Setup
 1. Go to https://www.python.org/downloads/release/python-3116/ and downloaded Python 3.11.6.
 2. Once downloaded and installed, navigate to your projects directory then create a virtual environment. EX:
