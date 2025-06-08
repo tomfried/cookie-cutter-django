@@ -218,44 +218,6 @@ $secondary-panel-border-color-dark-theme: $dark-border-color-alt;
     padding: 2px 8px;
 }
 
-/* ===== Tables ===== */
-$primary-table-head-background-color: $soft-gray-color-alt;
-$primary-table-odd-background-color: $primary-background;
-$primary-table-even-background-color: $lightest-background;
-$primary-table-border-color: $primary-border-color;
-$primary-table-dark-theme-odd-background-color: invert($primary-table-odd-background-color);
-$primary-table-dark-theme-even-background-color: invert($primary-table-even-background-color);
-
-/* Primary Table */
-%primary-table-styles {
-    background-color: $primary-table-even-background-color;
-    border: 1px solid $primary-table-border-color;
-    thead {
-      background-color: $primary-table-head-background-color;
-    }
-    tr:nth-child(even) {
-        background-color: $primary-table-odd-background-color;
-    }
-}
-
-/* Invisible Table */
-%invisible-table-styles {
-    background-color: $lightest-background;
-    border: 0 !important;
-    tr {
-        background-color: $lightest-background !important;
-        body.theme-dark & {
-            background-color: $darkest-background !important;
-        }
-        // Add styles for users WITHOUT a theme but have preference set in Windows/Mac/etc Settings
-        @media (prefers-color-scheme: dark) {
-            body.theme-default & {
-                background-color: $darkest-background !important;
-            }
-        }
-    }
-}
-
 /* ===== Tabs ===== */
 // Generic Non-Themed Tabs
 %generic-tab-styles {
@@ -731,24 +693,65 @@ hr {
     border: 0;
     border-top: 1px solid $secondary-border-color;
 }
-h1, .h1-mimic {
+h1,
+.mimic-h1 {
     font-size: $h1-font-size;
-    margin-top: 0;
+    line-height: 1.2;
+    margin-bottom: 1rem;
 }
-h2, .h2-mimic {
+h2,
+.mimic-h2,
+.smaller-h1 {
     font-size: $h2-font-size;
+    line-height: 1.2;
+    margin-bottom: .75rem;
 }
-h3 {
+h3,
+.mimic-h3,
+.smaller-h2 {
     font-size: $h3-font-size;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: .5rem;
 }
-h2, h3, h4, h5, .h2-mimic {
-    color: $secondary-text-color;
+h4,
+.mimic-h4,
+.smaller-h3 {
+    font-size: $h4-font-size;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: .5rem;
+}
+h5,
+.mimic-h5,
+.smaller-h4 {
+    font-size: $h5-font-size;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: .5rem;
+}
+@media all and (max-width: $tablet-size) {
+    h1 {
+        font-size: $h2-font-size;
+        line-height: 1.2;
+    }
+    h2,
+    .smaller-h1 {
+        font-size: $h3-font-size;
+    }
+    h3,
+    .smaller-h2 {
+        font-size: $h4-font-size;
+    }
+    h4,
+    .smaller-h3 {
+        font-size: $h5-font-size;
+    }
 }
 hr {
     border: 0;
     border-top: 1px solid $secondary-border-color;
 }
-
 
 /* ===== Screenreader Only ===== */
 .sr-only {
@@ -956,6 +959,42 @@ hr {
 }
 
 /* ===== Tables ===== */
+$standard-table-head-background-color: $soft-gray-color-alt;
+$standard-table-odd-background-color: $primary-background;
+$standard-table-even-background-color: $lightest-background;
+$standard-table-border-color: $primary-border-color;
+$standard-table-dark-theme-odd-background-color: invert($standard-table-odd-background-color);
+$standard-table-dark-theme-even-background-color: invert($standard-table-even-background-color);
+
+/* Primary Table */
+%standard-table-styles {
+    background-color: $standard-table-even-background-color;
+    border: 1px solid $standard-table-border-color;
+    thead {
+      background-color: $standard-table-head-background-color;
+    }
+    tr:nth-child(even) {
+        background-color: $standard-table-odd-background-color;
+    }
+}
+
+/* Invisible Table */
+%invisible-table-styles {
+    background-color: $lightest-background;
+    border: 0 !important;
+    tr {
+        background-color: $lightest-background !important;
+        body.theme-dark & {
+            background-color: $darkest-background !important;
+        }
+        // Add styles for users WITHOUT a theme but have preference set in Windows/Mac/etc Settings
+        @media (prefers-color-scheme: dark) {
+            body.theme-default & {
+                background-color: $darkest-background !important;
+            }
+        }
+    }
+}
 table {
     width: 100% !important;
     @media all and (max-width: $mobile-size-below) {
@@ -967,6 +1006,10 @@ table a .fa-trash {
     margin-right: .15em;
 }
 
+table.standard-table,
+table.static-table  {
+    @extend %standard-table-styles;
+}
 // Prevents flicker for datatables where it loads then renders again.
 table.responsive {
     display: none;
